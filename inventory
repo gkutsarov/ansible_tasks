@@ -1,2 +1,8 @@
-192.168.0.189
+[web_servers]
+192.168.0.189 #variables# apache_package=httpd php_package=php
+
+[db_servers]
 192.168.0.190
+
+[file_servers]
+192.168.0.197

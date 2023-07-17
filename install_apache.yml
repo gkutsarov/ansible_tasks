@@ -6,37 +6,10 @@
 
   # CentOS
 
-  - name: update repository index
-    yum:
+  - name: install httpd and php packages
+    package:
+      name:
+        - "{{ apache_package }}"
+        - "{{ php_package }}"
+      state: latest
       update_cache: yes
-
-  - name: install httpd package
-    yum:
-      name: httpd
-      state: latest
-    when: ansible_distribution == "CentOS" # Run only if distro is CentOs
-
-  - name: install php
-    yum:
-      name: php
-      state: latest
-    when: ansible_distribution == "CentOS" # Run only if distro is CentOS
-
-  # Ubuntu 
-
-  - name: update repository index
-    apt:
-      update_cache: yes
-
-  - name: install apache2 package
-    apt:
-      name: apache2
-      state: latest
-    when: ansible_distribution == "Ubuntu" # Run only if distro is Ubuntu
-
-  - name: install php
-    apt:
-      name: libapache2-mod-php
-      state: latest
-    when: ansible_distribution == "CentOS" # Run only if distro is CentOS
-
