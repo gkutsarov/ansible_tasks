@@ -1,5 +1,5 @@
 ---
-
+# Simplified playbook using variables. Package variables to be defined in inventory
 - hosts: all
   become: true
   tasks:
@@ -9,7 +9,7 @@
   - name: install httpd and php packages
     package:
       name:
-        - "{{ apache_package }}"
-        - "{{ php_package }}"
+        - "{{ apache_package }}" #variable for apache package
+        - "{{ php_package }}"    #variable for php package
       state: latest
       update_cache: yes
