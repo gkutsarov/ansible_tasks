@@ -1,0 +1,4 @@
+packages:
+  - vim
+  - bash-completion
+  - httpd

@@ -1,0 +1,31 @@
+---
+
+- hosts: all
+  become: true
+  vars_files:
+    - /root/ansible-task1/variables/main.yml
+
+  tasks:
+
+  - name: Update Packages
+    yum:
+      name: "*"
+      state: latest
+
+  - name: Install Packages
+    package:
+      name: "{{ packages }}"
+
+  - name: Start HTTPD Service
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: Copy Files
+    copy:
+      src: "{{ file }}"
+      dest: "{{ destination }}"
+      owner: root
+      group: root
+      mode: 0644
