@@ -4,10 +4,3 @@
 [prod]
 192.168.0.189
 
-[dev:vars]
-file=/root/ansible-task1/files/testing.html
-destination=/var/www/html/index.html
-
-[prod:vars]
-file=/root/ansible-task1/files/production.html
-destination=/var/www/html/index.html

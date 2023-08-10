@@ -3,7 +3,7 @@
 - hosts: all
   become: true
   vars_files:
-    - /root/ansible-task1/variables/main.yml
+    - /root/ansible_tasks/ansible-task1/variables/main.yml
 
   tasks:
 
@@ -22,10 +22,21 @@
       state: started
       enabled: yes
 
-  - name: Copy Files
+  - name: Copy Files to Dev
     copy:
-      src: "{{ file }}"
-      dest: "{{ destination }}"
+      src: /root/ansible_tasks/ansible-task1/files/testing.html
+      dest: /var/www/html/index.html
       owner: root
       group: root
       mode: 0644
+    when: "'dev' in group_names"    
+  
+  - name: Copy Files to Prod
+    copy:
+      src: /root/ansible_tasks/ansible-task1/files/production.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+    when: "'prod' in group_names"
+
