@@ -1,0 +1,6 @@
+- name: install mariadb server package (CentOS)
+  yum:
+    name: mariadb
+    state: latest
+  when: "'db_servers' in group_names"
+  # when: ansible_distribution == "CentOS"
