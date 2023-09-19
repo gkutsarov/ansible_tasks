@@ -1,6 +1,9 @@
-## Vagrant Configuration ##
-These ansible playbooks use 4 different VMs. To provision those VMs we use Vagrant configured to work with Hyper-V as a hypervisor. All the necessary configurations to provision the VMs and to make them work with the Ansible playbooks are stored in **Vagrantfile**. To be able to run it you need to have Vagrant and Hyper-V installed. Go to your Vagrant installation folder, open a PowerShell, and type **vagrant up**.
+## Note ##
 
+The Vagrant configuration file is done with no security in mind. All the VMs are in a sandbox environment. 
+
+## Vagrant Configuration ##
+These ansible playbooks use 4 different VMs. To provision those VMs we use Vagrant configured to work with Hyper-V as a hypervisor. All the necessary configurations to provision the VMs and to make them work with the Ansible playbooks are stored in **Vagrantfile**. To be able to run it you need to have Vagrant and Hyper-V installed. Go to your Vagrant installation folder, open a PowerShell and type **vagrant up**.
 
 ## Ansible tasks used to automate various scenarios when configuring a VM ##
 
